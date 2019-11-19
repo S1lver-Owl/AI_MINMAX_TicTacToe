@@ -2,8 +2,6 @@ import utils as u
 import boards as b
 
 SCORE = []
-SCORE1 = []
-BOARD = []
 
 
 def Is_Move_Valid(board, position):
