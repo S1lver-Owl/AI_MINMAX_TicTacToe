@@ -50,7 +50,6 @@ def Player(player1, player2):
 def Computer(player):
     board = u.New_Board()
     turn = randint(0, 1)
-    who = "O"
 
     if turn == 0:
         who = "X"

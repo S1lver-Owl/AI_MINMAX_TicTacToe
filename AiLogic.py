@@ -1,5 +1,5 @@
 import utils as u
-import boards as b
+
 
 SCORE = []
 
@@ -90,7 +90,11 @@ def run1(board, whofirst):
                 win = win/total*100
                 draw = draw/total*100
                 lose = lose/total*100
-
+                
+                win = round(win, 2)
+                draw = round(draw, 2)
+                lose = round(lose, 2)
+                
                 result.append([win, draw, lose])
     return result
 
@@ -111,18 +115,26 @@ def check_lose(board):
 def logic(board, whofirst):
     stats = run1(board, whofirst)
     move = 0
-    if check_lose(board):
-        return "Block", check_lose(board)[1]
+
 
     for i in range(len(stats)):
-        if stats[i][0] >= stats[i][1] and stats[i][0] >= stats[i][2]:
-            if stats[i][0] >= stats[move][0]:
+        if whofirst == "X":
+            if stats[i][0] == 100:
                 move = i
-        elif stats[i][1] >= stats[i][2]:
-            if stats[i][1] >= stats[move][1]:
+            elif stats[i][0] >= stats[move][0]:
                 move = i
-        elif stats[i][2] >= stats[i][1] and stats[i][2] >= stats[i][1]:
-            if stats[i][2] <= stats[move][2]:
+            elif stats[i][1] >= stats[move][0]:
                 move = i
+        elif whofirst == "O":
+            if stats[i][0] == 100:
+                move = i
+            elif stats[i][0] % 10 != 0:
+                if stats[i][0] >= stats[move][0]:
+                    move = i
+                elif stats[i][1] >= stats[move][0]:
+                    move = i
+
+    if check_lose(board) and stats[i][0] != 100:
+        return "Block", check_lose(board)[1]
 
     return "move", move
