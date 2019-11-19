@@ -103,7 +103,7 @@ def Computer(player):
             board = u.Make_Move(board, move, "O")
             Render(board)
 
-            winner = u.Check_Winner(board)
+        winner = u.Check_Winner(board)
 
         if turn == 0:
             turn = 1

@@ -1,5 +1,5 @@
 board1 = [
-    [None, None, "X"],
-    [None, "O", "O"],
+    ["X", None, None],
+    [None, None, None],
     [None, None, None]
     ]

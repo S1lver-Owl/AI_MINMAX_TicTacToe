@@ -126,6 +126,3 @@ def logic(board, whofirst):
                 move = i
 
     return "move", move
-
-
-logic(b.board1, "O")
